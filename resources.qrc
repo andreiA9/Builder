@@ -1,7 +1,10 @@
 <RCC>
     <qresource prefix="/">
-        <file>Resources/0-unused-variable.c</file>
-        <file>Resources/1-hello.c</file>
-        <file>Resources/2-bad-format.c</file>
+        <file>Resources/Sources/0-unused-variable.c</file>
+        <file>Resources/Sources/1-hello.c</file>
+        <file>Resources/Sources/2-bad-format.c</file>
+        <file>Resources/Sources-inclusion/hello_fn.c</file>
+        <file>Resources/Sources-inclusion/hello.h</file>
+        <file>Resources/Sources-inclusion/main.c</file>
     </qresource>
 </RCC>

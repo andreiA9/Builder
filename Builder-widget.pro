@@ -20,10 +20,19 @@ HEADERS += \
 FORMS += \
     Applicationwindow.ui
 
+
+RESOURCES += \
+    resources.qrc
+
+
+installFiles.path = $$OUT_PWD/Sources
+installFiles.files = \
+    $$PWD/Resources/Sources/* \
+    $$PWD/Resources/Sources-inclusion/*
+INSTALLS += installFiles
+
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-RESOURCES += \
-    resources.qrc

@@ -1,0 +1,8 @@
+gcc -Wall main.c hello_fn.c -o newhello
+
+In this case, we use the -o option to specify a different
+output file for the executable, 'newhello'. Note that the
+ header file 'hello.h' is not specified in the list of
+ files on the command line. The directive #include "hello.h"
+ in the source files instructs the compiler to include it
+ automatically at the appropriate points.
