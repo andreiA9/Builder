@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/Sources/0-unused-variable.c</file>
+        <file>Resources/Sources/1-hello.c</file>
+        <file>Resources/Sources/2-bad-format.c</file>
+        <file>Resources/Sources-inclusion/func.c</file>
+        <file>Resources/Sources-inclusion/func.h</file>
+        <file>Resources/Sources-inclusion/main.c</file>
+    </qresource>
+</RCC>

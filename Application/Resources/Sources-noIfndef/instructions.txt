@@ -1,0 +1,117 @@
+COMPILE ERROR with GCC
+How to find the multiple definitions of a function
+
+header.h:
+
+class foo {
+public:
+  void bar ();
+};
+
+void foo::bar ()
+{
+}
+
+
+source.cpp:
+
+#include "header1.hpp"
+int example1()
+{
+  foo f;
+  f.bar ();
+}
+
+main.cpp:
+
+#include "header1.hpp"
+int main ()
+{
+  foo f;
+  f.bar ();
+  f.bar ();
+}
+
+Then, compile two files separately and link them together. For example:
+g++ -c source.cpp source.o
+g++ -c main.cpp main.o
+g++ -o a.out source.o main.o
+
+That will give you a linker error you have described
+ in your question, because method foo::bar appears
+ twice, in both source1 and source2 objects. Linker
+ doesn't know which one to use.
+
+There are two common solutions to this problem:
+
+Solution #1 - Have that method inlined.
+
+By declared that method with inline keyword, compiler
+ will either inline the whole method or, if it
+ decides not to, it will generate anonymous method
+ (same method but with some unique name for a given
+ object file), so there will be no conflicts in object
+ files. For example:
+
+class foo {
+public:
+  void bar ();
+};
+
+inline void foo::bar ()
+{
+}
+Solution #2 - Have definition (implementation) of
+ that method in another source file, so that it
+ appears only once in the whole program. For example:
+
+header.h:
+
+class foo {
+public:
+  void bar ();
+};
+
+header.cpp:
+
+#include "header.c"
+void foo::bar ()
+{
+}
+To decide whether to inline or not, you have to know
+ (or at least make a guess) whether calling this
+ function is more expensive than having this code
+ duplicated / inlined all over the program. Inlined
+ code usually makes your program bigger and increases
+ compilation time. But it doesn't necessarily make it
+ faster. Plus, having definition in source file will
+ not result in re-compilation of all source files
+ using that function, but only re-compilation of the
+ source file that has definition, and then re-linking.
+ Many programmers are going crazy about C++ inlining
+ without really understanding how it affects the
+ program. I'd recommend going with the definition in
+ a source file and making it inline only if calling
+ that function becomes a performance bottleneck and
+ otherwise having it inlined will fix it.
+
+
+
+
+
+
+
+
+
+COMPILE RESOURCE with GCC
+External Binary Resources
+For an external binary resource to be created you must
+ create the resource data (commonly given the .rcc
+ extension) by passing the -binary switch to rcc. Once
+ the binary resource is created you can register the
+ resource with the QResource API.
+
+For example, a set of resource data specified in a
+ .qrc file can be compiled in the following way:
+
+rcc -binary myresource.qrc -o myresource.rcc
