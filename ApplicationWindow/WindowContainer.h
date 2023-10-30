@@ -1,7 +1,11 @@
 #ifndef WindowContainer_H
 #define WindowContainer_H
 
-// QT
+// local project headers
+// ----------------------
+
+// standard C/C++ headers
+// ----------------------
 #include <QWidget>
 #include <QLabel>
 #include <QLineEdit>

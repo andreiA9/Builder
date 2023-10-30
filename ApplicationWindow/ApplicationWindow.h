@@ -1,10 +1,14 @@
 #ifndef APPLICATION_WINDOW_H
 #define APPLICATION_WINDOW_H
 
+// local project headers
+// ----------------------
 #include "WindowContainer.h"
 #include "EditorModule.h"
 #include "SessionModule.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QThread>
 
 class ApplicationWindow : public WindowContainer

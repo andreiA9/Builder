@@ -1,4 +1,9 @@
+// local project headers
+// ----------------------
 #include "ProjectManager.h"
+
+// standard C/C++ headers
+// ----------------------
 
 // fiecare ID de PROIECT va avea
 // "ProjectManager.Project.0"

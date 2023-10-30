@@ -1,5 +1,9 @@
+// local project headers
+// ----------------------
 #include "BuildManager.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QDebug>
 
 BuildManager::BuildManager()

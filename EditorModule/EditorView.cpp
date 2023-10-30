@@ -1,4 +1,9 @@
+// local project headers
+// ----------------------
 #include "EditorView.h"
+
+// standard C/C++ headers
+// ----------------------
 
 
 EditorView::EditorView(QStackedWidget* stackedWorkArea)

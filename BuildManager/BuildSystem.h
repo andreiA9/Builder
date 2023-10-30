@@ -1,8 +1,12 @@
 #ifndef BUILD_SYSTEM_H
 #define BUILD_SYSTEM_H
 
+// local project headers
+// ----------------------
 #include "BuildConfiguration.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QString>
 
 // !!!!

@@ -1,8 +1,12 @@
-#ifndef BUILD_MODULE_H
-#define BUILD_MODULE_H
+#ifndef BUILD_MANAGER_H
+#define BUILD_MANAGER_H
 
+// local project headers
+// ----------------------
 #include "Target.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QStackedWidget>
 
 class BuildManager : public QObject
@@ -41,4 +45,4 @@ private:
     QString m_buildCommand;
 };
 
-#endif // BUILD_MODULE_H
+#endif // BUILD_MANAGER_H

@@ -1,5 +1,9 @@
+// local project headers
+// ----------------------
 #include "ProjectImporter.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QFile>
 #include <QDebug>
 

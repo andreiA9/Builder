@@ -1,7 +1,11 @@
+// local project headers
+// ----------------------
 #include "EditorModule.h"
 #include "ProjectSettings.h"
 #include "Project.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QDebug>
 
 EditorModule::EditorModule(QStackedWidget* stackedWorkArea)

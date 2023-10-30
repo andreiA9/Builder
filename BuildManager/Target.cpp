@@ -1,5 +1,9 @@
+// local project headers
+// ----------------------
 #include "Target.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QDir>
 #include <QDebug>
 
@@ -115,12 +119,12 @@ void Target::updateOutputTextEdit()
 }
 
 // ASTA a fost MUTATA.in executeCompileFile()
-QString Target::generateOutputCommand(const char* outputFormat, QString &fileName)
+QString Target::generateOutputCommand(const char* /*outputFormat*/, QString& /*fileName*/)
 {
 
 }
 
-QString Target::generateObjCommand(const char* objFileName, QString &fileName)
+QString Target::generateObjCommand(const char* objFileName, QString& fileName)
 {
     QString command = QString("%1 %2 -c %3/%4 -o %5")
                                 .arg(COMMAND_GCC)
@@ -132,7 +136,7 @@ QString Target::generateObjCommand(const char* objFileName, QString &fileName)
     return command;
 }
 
-QString Target::generateExeFromObj(const QString &exeFormat, const QString &fileName)
+QString Target::generateExeFromObj(const QString& exeFormat, const QString& fileName)
 {
     QString command = QString("%1 %2 -o %3")
                                 .arg(COMMAND_GCC)
@@ -142,7 +146,7 @@ QString Target::generateExeFromObj(const QString &exeFormat, const QString &file
     return command;
 }
 
-bool Target::compileSourceFile(QString &fileName, QString* objFile)
+bool Target::compileSourceFile(QString& fileName, QString* objFile)
 {
     const int extensionLength = 1;
 
@@ -160,13 +164,13 @@ bool Target::compileSourceFile(QString &fileName, QString* objFile)
     return true;
 }
 
-void Target::linkObjFiles(const QString &exeName, const QString &objFilesString)
+void Target::linkObjFiles(const QString& exeName, const QString& objFilesString)
 {
     QString newCommand = generateExeFromObj(exeName, objFilesString);
     ::system(newCommand.toStdString().c_str());
 }
 
-void Target::generateExeFromMultipleSources(QString &exeName, QString &fileName1, QString &fileName2)
+void Target::generateExeFromMultipleSources(QString& exeName, QString& fileName1, QString& fileName2)
 {
     QString objFile1;
     if (!compileSourceFile(fileName1, &objFile1))

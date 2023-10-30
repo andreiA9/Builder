@@ -1,6 +1,11 @@
 #ifndef DIRECTORY_NODE_H
 #define DIRECTORY_NODE_H
 
+// local project headers
+// ----------------------
+
+// standard C/C++ headers
+// ----------------------
 #include <QUrl>
 
 // !!!!

@@ -1,8 +1,13 @@
 #ifndef SESSION_MODULE_H
 #define SESSION_MODULE_H
 
+// local project headers
+// ----------------------
 #include "BuildManager.h"
 #include "ProjectManager.h"
+
+// standard C/C++ headers
+// ----------------------
 
 class Events
 {

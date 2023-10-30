@@ -1,11 +1,16 @@
 #ifndef BUILD_CONFIGURATION_H
 #define BUILD_CONFIGURATION_H
 
+// local project headers
+// ----------------------
 #include "BuildSteps.h"
 #include "Target.h"
 #include "PrjmakeTarget.h"
 #include "QmakeTarget.h"
 #include "CmakeTarget.h"
+
+// standard C/C++ headers
+// ----------------------
 
 class BuildConfiguration
 {

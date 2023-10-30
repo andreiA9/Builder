@@ -1,5 +1,10 @@
+// local project headers
+// ----------------------
 #include "SessionModule.h"
 
+
+// standard C/C++ headers
+// ----------------------
 #include <unistd.h>
 #include <QDebug>
 

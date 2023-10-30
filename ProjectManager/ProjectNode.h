@@ -1,8 +1,12 @@
 #ifndef PROJECT_NODE_H
 #define PROJECT_NODE_H
 
+// local project headers
+// ----------------------
 #include "DirectoryNode.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QUrl>
 
 // !!!!

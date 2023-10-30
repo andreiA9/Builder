@@ -1,7 +1,12 @@
 #ifndef ENVIRONMENT_H
 #define ENVIRONMENT_H
 
+// local project headers
+// ----------------------
 #include <QString>
+
+// standard C/C++ headers
+// ----------------------
 
 // NUMELE.acestea NU se vor SCHIMBA
 // < PENTRU CA asa sunt in BuildEnvironment din QtCreator

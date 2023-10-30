@@ -1,8 +1,12 @@
 #ifndef EDITOR_MODULE_H
 #define EDITOR_MODULE_H
 
+// local project headers
+// ----------------------
 #include "EditorView.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QStackedWidget>
 
 class EditorModule : public QObject

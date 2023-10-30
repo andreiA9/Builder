@@ -1,4 +1,9 @@
+// local project headers
+// ----------------------
 #include "Project.h"
+
+// standard C/C++ headers
+// ----------------------
 
 Project::Project(const QUrl& projectFileNameWithPath)
 {

@@ -1,13 +1,16 @@
-#ifndef EDITORVIEW_H
-#define EDITORVIEW_H
+#ifndef EDITOR_VIEW_H
+#define EDITOR_VIEW_H
 
-// WIDGETS
+// local project headers
+// ----------------------
+#include "TextEditor.h"
+
+// standard C/C++ headers
+// ----------------------
 #include <QPushButton>
 #include <QStackedWidget>
 #include <QTextEdit>
 #include <QMap>
-
-#include "TextEditor.h"
 
 class EditorView : public QObject
 {
@@ -51,4 +54,4 @@ private:
     QMap<QString, TextEditor*> m_editors;
 };
 
-#endif // EDITORVIEW_H
+#endif // EDITOR_VIEW_H

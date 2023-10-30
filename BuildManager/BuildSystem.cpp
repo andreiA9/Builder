@@ -1,4 +1,9 @@
+// local project headers
+// ----------------------
 #include "BuildSystem.h"
+
+// standard C/C++ headers
+// ----------------------
 
 BuildSystem::BuildSystem(Target* target)
 {

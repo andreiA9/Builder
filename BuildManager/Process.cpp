@@ -1,5 +1,9 @@
+// local project headers
+// ----------------------
 #include "Process.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <unistd.h>
 #include <QProcess>
 #include <QDebug>

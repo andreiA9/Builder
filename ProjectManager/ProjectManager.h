@@ -1,8 +1,12 @@
-#ifndef SESSION_MANAGER_H
-#define SESSION_MANAGER_H
+#ifndef PROJECT_MANAGER_H
+#define PROJECT_MANAGER_H
 
+// local project headers
+// ----------------------
 #include "ProjectController.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QString>
 #include <QList>
 
@@ -37,4 +41,4 @@ private:
     QMap<QString, Project*> m_openProjects;
 };
 
-#endif // SESSION_MANAGER_H
+#endif // PROJECT_MANAGER_H

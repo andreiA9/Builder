@@ -1,6 +1,12 @@
 #ifndef RUN_CONFIGURATION_H
 #define RUN_CONFIGURATION_H
 
+// local project headers
+// ----------------------
+
+// standard C/C++ headers
+// ----------------------
+
 // !!!!
 // THIS specifies which target should be ran: Tests, Simulator, or Application
 // !!!!

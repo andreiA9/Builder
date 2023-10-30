@@ -1,6 +1,11 @@
 #ifndef DOCUMENT_H
 #define DOCUMENT_H
 
+// local project headers
+// ----------------------
+
+// standard C/C++ headers
+// ----------------------
 #include <QString>
 
 // !!!!

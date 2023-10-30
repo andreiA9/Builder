@@ -1,6 +1,11 @@
 #ifndef TEXT_EDITOR_H
 #define TEXT_EDITOR_H
 
+// local project headers
+// ----------------------
+
+// standard C/C++ headers
+// ----------------------
 #include <QString>
 
 // !!!!

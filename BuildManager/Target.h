@@ -1,8 +1,12 @@
 #ifndef TARGET_H
 #define TARGET_H
 
+// local project headers
+// ----------------------
 #include "Process.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QString>
 #include <QThread>
 
@@ -32,17 +36,17 @@ public:
 
     // !!!!
     // FROM HERE UNSORTED
-    QString generateOutputCommand(const char* outputFormat, QString &fileName);
+    QString generateOutputCommand(const char* outputFormat, QString& fileName);
 
-    QString generateObjCommand(const char* objFileName, QString &fileName);
+    QString generateObjCommand(const char* objFileName, QString& fileName);
 
-    QString generateExeFromObj(const QString &exeFormat, const QString &fileName);
+    QString generateExeFromObj(const QString& exeFormat, const QString& fileName);
 
-    bool compileSourceFile(QString &fileName, QString* objFile);
+    bool compileSourceFile(QString& fileName, QString* objFile);
 
-    void linkObjFiles(const QString &exeName, const QString &objFilesString);
+    void linkObjFiles(const QString& exeName, const QString& objFilesString);
 
-    void generateExeFromMultipleSources(QString &exeName, QString &fileName1, QString &fileName2);
+    void generateExeFromMultipleSources(QString& exeName, QString& fileName1, QString& fileName2);
 
 signals:
     void compileOutputChanged();

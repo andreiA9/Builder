@@ -1,6 +1,11 @@
 #ifndef PROJECT_SETTINGS_H
 #define PROJECT_SETTINGS_H
 
+// local project headers
+// ----------------------
+
+// standard C/C++ headers
+// ----------------------
 #include <QString>
 
 // !!!!

@@ -1,7 +1,12 @@
 #ifndef BUILD_STEP_H
 #define BUILD_STEP_H
 
+// local project headers
+// ----------------------
 #include "Process.h"
+
+// standard C/C++ headers
+// ----------------------
 
 // !!!!
 // for Cmake the build steps are:

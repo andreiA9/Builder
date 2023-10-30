@@ -1,8 +1,12 @@
 #ifndef PROJECTS_VIEW_H
 #define PROJECTS_VIEW_H
 
+// local project headers
+// ----------------------
 #include "ProjectManager.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QString>
 #include <QListView>
 #include <QWidget>

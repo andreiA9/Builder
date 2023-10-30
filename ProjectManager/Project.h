@@ -1,10 +1,14 @@
 #ifndef PROJECT_H
 #define PROJECT_H
 
+// local project headers
+// ----------------------
 #include "Document.h"
 #include "ProjectNode.h"
 #include "ProjectSettings.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QString>
 
 // !!!!

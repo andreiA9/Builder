@@ -1,8 +1,12 @@
-#ifndef DOCUMENT_H
-#define DOCUMENT_H
+#ifndef PROCESS_H
+#define PROCESS_H
 
+// local project headers
+// ----------------------
 #include "Environment.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QString>
 #include <QObject>
 
@@ -46,4 +50,4 @@ private:
     Environment m_environment;
 };
 
-#endif // DOCUMENT_H
+#endif // PROCESS_H

@@ -1,9 +1,13 @@
 #ifndef PROJECT_CONTROLLER_H
 #define PROJECT_CONTROLLER_H
 
+// local project headers
+// ----------------------
 #include "Project.h"
 #include "ProjectNode.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QString>
 
 // THIS handles the USECASES of PROJECT CREATION

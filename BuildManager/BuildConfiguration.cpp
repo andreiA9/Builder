@@ -1,4 +1,9 @@
+// local project headers
+// ----------------------
 #include "BuildConfiguration.h"
+
+// standard C/C++ headers
+// ----------------------
 
 BuildConfiguration::BuildConfiguration(Target* target)
     :   m_target(target)
