@@ -1,0 +1,11 @@
+TEMPLATE = lib
+
+# Specify the target name
+TARGET = secondLib
+
+# Specify the source files
+HEADERS += SecondClass.h
+SOURCES += SecondClass.cpp
+
+# Include the plugin configuration
+CONFIG += plugin staticlib

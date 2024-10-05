@@ -1,0 +1,8 @@
+TEMPLATE = subdirs
+
+# Add the subdirectories
+SUBDIRS += firstLib \
+           main
+
+# Specify the build order of the subdirectories
+main.depends = plugins

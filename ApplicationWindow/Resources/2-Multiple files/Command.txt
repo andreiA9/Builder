@@ -1,2 +1,0 @@
-COMPILEZI.cu
-gcc -Wall main.cpp print.cpp -o multipleFiles

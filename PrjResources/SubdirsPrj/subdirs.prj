@@ -1,0 +1,6 @@
+TEMPLATE = subdirs
+SUBDIRS = secondLib \
+          firstLib
+
+# Specify the build order of the subdirectories
+firstLib.depends = secondLib

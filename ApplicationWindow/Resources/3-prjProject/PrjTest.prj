@@ -1,3 +1,0 @@
-.executable PrjTest
-	srcs = main.cpp
-

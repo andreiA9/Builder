@@ -1,0 +1,8 @@
+# Specify the template type
+TEMPLATE = app
+
+# Specify the target name
+TARGET = main
+
+# Specify the source file
+SOURCES += main.cpp

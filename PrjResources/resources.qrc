@@ -1,0 +1,36 @@
+<RCC version="1.0">
+    <qresource prefix="/TopLevelPrj">
+        <file alias="topLevel.prj">./TopLevelPrj/topLevel.prj</file>
+        <file alias="firstLib.prj">./TopLevelPrj/firstLib/firstLib.prj</file>
+        <file alias="main.prj">./TopLevelPrj/main/main.prj</file>
+    </qresource>
+    <qresource prefix="/BinaryPrj">
+        <file alias="main.prj">./BinaryPrj/main.prj</file>
+        <file alias="main.cpp">./BinaryPrj/main.cpp</file>
+        <file alias="FirstClass.cpp">./BinaryPrj/FirstClass.cpp</file>
+        <file alias="FirstClass.h">./BinaryPrj/FirstClass.h</file>
+        <file alias="SecondClass.cpp">./BinaryPrj/SecondClass.cpp</file>
+        <file alias="SecondClass.h">./BinaryPrj/SecondClass.h</file>
+    </qresource>
+    <qresource prefix="/LibraryPrj">
+        <file alias="firstLib.prj">./LibraryPrj/firstLib.prj</file>
+        <file alias="FirstClass.cpp">./LibraryPrj/FirstClass.cpp</file>
+        <file alias="FirstClass.h">./LibraryPrj/FirstClass.h</file>
+        <file alias="SecondClass.cpp">./LibraryPrj/SecondClass.cpp</file>
+        <file alias="SecondClass.h">./LibraryPrj/SecondClass.h</file>
+    </qresource>
+    <!-- VEZI ca AICI NU poti avea NESTED FOLDERS in FISIERE .qrc -->
+    <qresource prefix="/SubdirsPrj">
+        <file alias="subdirs.prj">./SubdirsPrj/subdirs.prj</file>
+    </qresource>
+    <qresource prefix="/SubdirsPrj/firstLib">
+        <file alias="firstLib.prj">./SubdirsPrj/firstLib/firstLib.prj</file>
+        <file alias="FirstClass.cpp">./SubdirsPrj/firstLib/FirstClass.cpp</file>
+        <file alias="FirstClass.h">./SubdirsPrj/firstLib/FirstClass.h</file>
+    </qresource>
+    <qresource prefix="/SubdirsPrj/secondLib">
+        <file alias="secondLib.prj">./SubdirsPrj/secondLib/secondLib.prj</file>
+        <file alias="SecondClass.cpp">./SubdirsPrj/secondLib/SecondClass.cpp</file>
+        <file alias="SecondClass.h">./SubdirsPrj/secondLib/SecondClass.h</file>
+    </qresource>
+</RCC>

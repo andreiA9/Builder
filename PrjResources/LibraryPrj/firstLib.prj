@@ -1,0 +1,8 @@
+# Specify the template type
+TEMPLATE = lib
+
+# Specify the target name
+TARGET = firstLib
+
+# Specify the source files
+SOURCES += FirstClass.cpp

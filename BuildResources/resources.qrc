@@ -1,0 +1,22 @@
+<RCC version="1.0">
+    <qresource prefix="/CompileFolder">
+        <file alias="main.cpp">./RecompileFolder/main.cpp</file>
+        <file alias="PrintMessage.cpp">./ExecutableFolder/PrintMessage.cpp</file>
+        <file alias="PrintMessage.h">./ExecutableFolder/PrintMessage.h</file>
+    </qresource>
+    <qresource prefix="/RecompileFolder">
+        <file alias="main.cpp">./RecompileFolder/main.cpp</file>
+        <file alias="PrintMessage.cpp">./ExecutableFolder/PrintMessage.cpp</file>
+        <file alias="PrintMessage.h">./ExecutableFolder/PrintMessage.h</file>
+    </qresource>
+    <qresource prefix="/ExecutableFolder">
+        <file alias="main.cpp">./ExecutableFolder/main.cpp</file>
+        <file alias="PrintMessage.cpp">./ExecutableFolder/PrintMessage.cpp</file>
+        <file alias="PrintMessage.h">./ExecutableFolder/PrintMessage.h</file>
+    </qresource>
+    <qresource prefix="/LibraryFolder">
+        <file alias="main.cpp">./LibraryFolder/main.cpp</file>
+        <file alias="PrintMessage.cpp">./LibraryFolder/PrintMessage.cpp</file>
+        <file alias="PrintMessage.h">./LibraryFolder/PrintMessage.h</file>
+    </qresource>
+</RCC>
