@@ -42,7 +42,7 @@ public:
     bool performOperation(int selection);
 
     // peform the operation in gcc for the respective directory
-    bool performOperation(int selection, const QString& resourceDir);
+    bool performOperation(PrjFileType event, const QString& resourceDir);
 
 private:
     PrjReader m_prjReader;

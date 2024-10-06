@@ -64,12 +64,12 @@ bool PrjParser::parseSubdirsPrj(const QString& workingDir, const QStringList& so
     return true;
 }
 
-bool PrjParser::performOperation(int selection, const QString& resourceDir)
+bool PrjParser::performOperation(PrjFileType event, const QString& resourceDir)
 {
     QDir resourceDirectory(resourceDir);
     QStringList sourceFiles = getSourceFiles(resourceDirectory);
 
-    switch (selection)
+    switch (event)
     {
         case PrjFileType::ProjectPrj:
         {

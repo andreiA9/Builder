@@ -6,10 +6,12 @@ TARGET = Components
 CONFIG += plugin staticlib
 
 SOURCES += \
-    EventListener.cpp
+    EventListener.cpp \
+    DirectoryHelpers.cpp
 
 HEADERS += \
     EventListener.h \
+    DirectoryHelpers.h \
     CommonTypes.h
 
 include(../../global.pri)

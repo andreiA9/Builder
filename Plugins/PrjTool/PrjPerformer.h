@@ -1,5 +1,5 @@
-#ifndef PRJ_CONTROLLER_H
-#define PRJ_CONTROLLER_H
+#ifndef PRJ_PERFORMER_H
+#define PRJ_PERFORMER_H
 
 // local project headers
 // ----------------------
@@ -19,13 +19,14 @@ public:
 
     // this finds the folder mapped to each BuildOperation
     // the mapping is done inside m_OperationToPathMap
-    bool findResourceDirectory(int selection, QString& resourceDir);
+    bool findResourceDirectory(PrjParser::PrjFileType event, QString& resourceDir);
 
     bool recompileFileIfModified(const QString& workingDir,
                                  const QStringList& sourceFiles,
                                  QVector<QString>& commandQueue);
 
-    bool parseProjectFile(int selection, QString& workingDir, PrjTemplate& prjTemplate);
+    bool parseProjectFile(PrjParser::PrjFileType event, QString& workingDir,
+                          PrjTemplate& prjTemplate);
 
     QVector<QString> handleApp(const QString& workingDir, const QStringList& sourceFiles);
 
@@ -42,5 +43,5 @@ private:
     PrjParser m_prjParser;
 };
 
-#endif // PRJ_CONTROLLER_H
+#endif // PRJ_PERFORMER_H
 

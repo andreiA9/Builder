@@ -1,0 +1,25 @@
+OUTPUT CONTROLLER -> Handler.handle()
+INPUT CONTROLLER -> Performer.perform() <- Reader.read()
+
+
+
+
+!!!!
+ASTA trebuie MUTAT.intr un STRING
+ |
+Process working directory:  "/home/andrei/Work/1-Applications/build-Builder-Desktop_Qt_5_12_12_GCC_64bit-Debug/Main/BuildResources/LibraryFolder"
+Process command:  "ar rcs myLibrary.a main.o PrintMessage.o"
+ Ok
+ |
+\ /
+il PUI TEXT EDIT-ul cu BUILD OUTPUT
+
+
+
+UNIT TESTING = TESTELE.pentru cele mai mici PARTI=ADICA
+ FUNCTIILE.din fiecare{FISIER/CLASA}
+ +
+COMPONENT TESTING = TESTELE.de LIBRARII
+ +
+INTEGRATION TESTING = TESTELE.de cum INTERACTIONEAZA LIBRARIILE
+

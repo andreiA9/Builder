@@ -2,6 +2,7 @@
 // ----------------------
 #include "GccHandler.h"
 #include "GccCommandGenerator.h"
+#include "DirectoryHelpers.h"
 
 // standard C/C++ headers
 // ----------------------
@@ -178,7 +179,7 @@ bool GccHandler::findResourceDirectory(BuildRequest event, QString& resourceDir)
     bool result;
     /*
     AICI va fi DIRECTORUL:ROOT.pentru RESURSE
-    "/home/andrei/Work/1-Applications/build-BuildManager-UI-Desktop_Qt_5_12_12_GCC_64bit-Debug/Plugins/Tests/Resources"
+    "Plugins/Tests/BuildManagerTests/BuildResources"
      _
     UNDE vei avea fiecare FOLDER;pe CARE se pot RULA TESTELE
     */
@@ -248,32 +249,6 @@ GccHandler::getCommandQueue(BuildRequest event, const QString& resourceDir)
     }
 
     return commandQueue;
-}
-
-bool GccHandler::findFolderInsideRoot(QDirIterator& dirIterator, QString& folderPath,
-                                         QString& resourceDir)
-{
-    bool result = false;
-    while (dirIterator.hasNext())
-    {
-        // this is put at the beginning of the function because the first entry is always "."
-        dirIterator.next();
-
-        // the name of the current directory
-        QFileInfo fileInfo = dirIterator.fileInfo();
-        // we want to exclude these entries: ".", ".."
-        QString fullPath = fileInfo.absoluteFilePath();
-        // this is the path we need, where the specific resources are placed
-        if (fullPath.contains(folderPath))
-        {
-            resourceDir = fullPath;
-            qDebug() << "Found resource directory: " << resourceDir;
-            result = true;
-            break;
-        }
-    }
-
-    return result;
 }
 
 //void GccController::updateOutputTextEdit()

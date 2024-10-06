@@ -1,5 +1,10 @@
+// local project headers
+// ----------------------
 #include "PrjPerformer.h"
+#include "DirectoryHelpers.h"
 
+// standard C/C++ headers
+// ----------------------
 #include <QDebug>
 #include <QDirIterator>
 
@@ -24,45 +29,43 @@ PrjPerformer::PrjPerformer()
     };
 }
 
-bool PrjPerformer::findResourceDirectory(int selection, QString& resourceDir)
+bool PrjPerformer::findResourceDirectory(PrjParser::PrjFileType event, QString& resourceDir)
 {
-    // Create a QDirIterator to iterate through a directory and its subdirectories
-    // You can pass additional filters such as QDir::Files, QDir::Dirs, etc.,
-    // and flags such as QDirIterator::Subdirectories to the constructor if needed.
+    bool result;
+    /*
+    AICI va fi DIRECTORUL:ROOT.pentru RESURSE
+    "Plugins/Tests/BuildManagerTests/BuildResources"
+     _
+    UNDE vei avea fiecare FOLDER;pe CARE se pot RULA TESTELE
+    */
     QDirIterator dirIterator(m_workingDirectory.absolutePath(), QDir::Dirs | QDir::NoDotAndDotDot);
-
-    qDebug() << "dirIterator.hasNext(): " << dirIterator.hasNext();
-    // Get the root directory
-    qDebug() << "rootDir: " << dirIterator.path();
-
-    // each build operation is mapped to a folder path, so we need to get
-    // the folder for the current operation
-    QString mappedFolderPath = m_OperationToPathMap[static_cast<PrjParser::PrjFileType>(selection)];
-
-    bool result = false;
-    while (dirIterator.hasNext())
+    if (dirIterator.hasNext())
     {
-        // this is put at the beginning of the function because the first entry is always "."
-        dirIterator.next();
+        qDebug() << "Checking for corresponding test directory inside root folder...";
 
-        // the name of the current directory
-        QFileInfo fileInfo = dirIterator.fileInfo();
-        // we want to exclude these entries: ".", ".."
-        QString fullPath = fileInfo.absoluteFilePath();
-        // this is the path we need, where the specific resources are placed
-        if (fullPath.contains(mappedFolderPath))
-        {
-            resourceDir = fullPath;
-            result = true;
-        }
+    }
+    else
+    {
+        qDebug() << "Could not find root directory: " << dirIterator.path();
+        result = false;
     }
 
+    /*
+    ACESTEA iti vor fi MAPARILE.de la MENIU.la fiecare BUILD OPERATION
+    1. Parse project prj          -> TopLevelPrj
+    2. Parse binary prj           -> BinaryPrj
+    3. Parse library prj          -> LibraryPrj
+    4. Parse subdirs prj          -> SubdirsPrj
+    */
+    QString mappedFolderPath = m_OperationToPathMap[event];
+    result = findFolderInsideRoot(dirIterator, mappedFolderPath, resourceDir);
     return result;
 }
 
-bool PrjPerformer::parseProjectFile(int selection, QString& workingDir, PrjTemplate& prjTemplate)
+bool PrjPerformer::parseProjectFile(PrjParser::PrjFileType event, QString& workingDir,
+                                    PrjTemplate& prjTemplate)
 {
-    if (!m_prjParser.performOperation(selection, workingDir))
+    if (!m_prjParser.performOperation(event, workingDir))
     {
         qDebug() << "Could not perform requested operation!";
         return false;

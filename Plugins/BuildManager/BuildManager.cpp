@@ -27,8 +27,8 @@ BuildManager::~BuildManager()
     delete m_buildStep;
     delete m_eventListener;
 
-//    m_workerThread.quit();
-//    m_workerThread.wait();
+    m_workerThread.quit();
+    m_workerThread.wait();
 }
 
 void BuildManager::process(const QString& /*unitName*/)
@@ -40,5 +40,4 @@ void BuildManager::process(const QString& /*unitName*/)
 
     m_eventListener->clearCurrentEvent();
     m_buildStep->setCommandQueue(resourceDir, commandQueue);
-//    m_buildStep->run();
 }

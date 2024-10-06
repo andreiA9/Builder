@@ -1,5 +1,5 @@
-#ifndef GCC_CONTROLLER_H
-#define GCC_CONTROLLER_H
+#ifndef GCC_HANDLER_H
+#define GCC_HANDLER_H
 
 // local project headers
 // ----------------------
@@ -13,9 +13,6 @@
 #include <QMap>
 #include <QThread>
 
-//class GccController : public QObject
-//{
-//    Q_OBJECT
 class GccHandler
 {
 public:
@@ -48,10 +45,6 @@ public:
     QVector<QString>
     getCommandQueue(BuildRequest event, const QString& resourceDir);
 
-private:
-    bool findFolderInsideRoot(QDirIterator& dirIterator, QString& folderPath,
-                              QString& resourceDir);
-
 //signals:
 //    void compileOutputChanged();
 
@@ -63,4 +56,4 @@ private:
     QMap<BuildRequest, QString> m_OperationToPathMap;
 };
 
-#endif // GCC_CONTROLLER_H
+#endif // GCC_HANDLER_H

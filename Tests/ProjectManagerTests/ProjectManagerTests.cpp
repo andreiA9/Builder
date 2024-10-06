@@ -12,9 +12,6 @@ void ProjectManagerTests::execute()
     // :/Resources/CompileFolder/main.cpp
     EventListener* eventListener = nullptr;
     Instance instance(eventListener);
-
-    // Invoke GccCommandGenerator based on the user's menu selection
-    // (1-compile, 2-recompile, 3-build executable, 4-create library)
     instance.execute(selection);
 }
 

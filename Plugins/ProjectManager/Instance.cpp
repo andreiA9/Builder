@@ -72,14 +72,16 @@ Instance::~Instance()
 
 void Instance::execute(int selection)
 {
+    PrjParser::PrjFileType event = static_cast<PrjParser::PrjFileType>(selection);
+
     QString workingDir;
-    if (!m_prjPerformer.findResourceDirectory(selection, workingDir))
+    if (!m_prjPerformer.findResourceDirectory(event, workingDir))
     {
         qDebug() << "Could not find resource directory!";
         return;
     }
     PrjTemplate prjTemplate;
-    if (!m_prjPerformer.parseProjectFile(selection, workingDir, prjTemplate))
+    if (!m_prjPerformer.parseProjectFile(event, workingDir, prjTemplate))
     {
         qDebug() << "Could not perform requested operation!";
     }
