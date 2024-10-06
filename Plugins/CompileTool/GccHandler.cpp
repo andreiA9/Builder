@@ -115,14 +115,14 @@ QString GccHandler::rebuildFileIfModified(const QString& workingDir,
 {
     QMap<QString, QDateTime> initialLastModifiedMap = getLastModifiedForFiles(workingDir, sourceFiles);
 
+    QStringList sourceFilesToRecompile;
+    bool containsModified = false;
+
     // !!!!
     // !!!!
     // trebuie un BREAKPOINT AICI
     // = la LINIA.cu
     // QMap<QString, QDateTime>
-
-    QStringList sourceFilesToRecompile;
-    bool containsModified = false;
     QMap<QString, QDateTime> finalLastModifiedMap = getLastModifiedForFiles(workingDir, sourceFiles);
     for (auto it = finalLastModifiedMap.begin(); it != finalLastModifiedMap.end(); it++)
     {
@@ -173,7 +173,7 @@ GccHandler::createLibrary(const QStringList& sourceFiles)
     return commandQueue;
 }
 
-bool GccHandler::findResourceDirectory(int selection, QString& resourceDir)
+bool GccHandler::findResourceDirectory(BuildRequest event, QString& resourceDir)
 {
     bool result;
     /*
@@ -201,7 +201,7 @@ bool GccHandler::findResourceDirectory(int selection, QString& resourceDir)
     3. Build folder               -> ExecutableFolder
     4. Create library             -> LibraryFolder
     */
-    QString mappedFolderPath = m_OperationToPathMap[static_cast<BuildRequest>(selection)];
+    QString mappedFolderPath = m_OperationToPathMap[event];
     result = findFolderInsideRoot(dirIterator, mappedFolderPath, resourceDir);
     return result;
 }

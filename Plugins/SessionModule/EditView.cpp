@@ -47,7 +47,7 @@ void EditView::initializeFileTabs()
 void EditView::initializeTreeView()
 {
     // create the tree view model
-    const QString resourcesPath = QDir::currentPath() + "/ProjectResources";
+    const QString resourcesPath = QDir::currentPath() + "/PrjResources";
     // create the file system model
     QFileSystemModel* model = new QFileSystemModel;
     // set root path for file system model, to be: build folder + "/Resources"

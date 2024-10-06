@@ -17,15 +17,9 @@ class Target : public QObject
     Q_OBJECT
 
 public:
-    Target(EventListener* eventListener, ProjectInfo* projectInfo);
+    Target(ProjectInfo* projectInfo);
 
     ~Target();
-
-    inline bool isProcessReady() { return m_buildStep->isProcessReady(); }
-
-    inline const QString& getBashOutput() { return m_buildStep->getBashOutput(); }
-
-    void process(const QString& buildCommand, const QString& unitName);
 
     QVector<QString> getBuildCommandQueue(BuildRequest event, const QString& buildCommand,
                                           QString& resourceDir);
@@ -34,17 +28,14 @@ public:
 
     void execute();
 
-    bool handleOperation(int selection);
+    bool handleOperation(BuildRequest event, QString& resourceDir, QVector<QString>& commandQueue);
+
+    void executeCommandQueue(QString resourceDir, QVector<QString> commandQueue);
 
 private:
-    EventListener* m_eventListener;
     ProjectInfo* m_projectInfo;
 
     GccHandler m_gccHandler;
-
-    BuildStep* m_buildStep;
-    QThread m_workerThread;
 };
 
 #endif // TARGET_H
-

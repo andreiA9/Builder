@@ -38,8 +38,8 @@ void WindowContainer::initializeControlButtons()
 {
     m_functionButton0 = new QPushButton("Compile");
     m_functionButton1 = new QPushButton("Recompile");
-    m_functionButton2 = new QPushButton("Build");
-    m_functionButton3 = new QPushButton("Generate lib");
+    m_functionButton2 = new QPushButton("Build directory");
+    m_functionButton3 = new QPushButton("Generate library");
     m_functionButton4 = new QPushButton("Undefined");
 
     QHBoxLayout* m_controlButtonsLayout = new QHBoxLayout;
@@ -91,4 +91,53 @@ void WindowContainer::initializeProjectTabs()
     m_projectTabLayout->addWidget(m_editProjectTab);
     m_projectTabLayout->addWidget(m_compileProjectTab);
     m_projectTabLayout->setContentsMargins(9, 0, 0, 0);
+}
+
+void WindowContainer::createMenuBar()
+{
+    m_menuBar = new QMenuBar(this);
+    createFileMenu();
+    createEditMenu();
+
+    m_menuBar->addMenu(m_modeMenu);
+    m_menuBar->addMenu(m_operationMenu);
+
+    m_mainGridLayout->setMenuBar(m_menuBar);
+}
+
+void WindowContainer::createFileMenu()
+{
+    m_buildAction = new QAction(tr("&Build"), this);
+    m_buildAction->setShortcuts(QKeySequence::New);
+
+    m_prjAction = new QAction(tr("&Prj"), this);
+    m_prjAction->setShortcut(QKeySequence::Open);
+
+    m_modeMenu = new QMenu(tr("&Mode"), this);
+    m_modeMenu->addAction(m_buildAction);
+    m_modeMenu->addAction(m_prjAction);
+    // will add "-----------------" to the MENU
+    m_modeMenu->addSeparator();
+    m_modeMenu->addAction(m_exitAction);
+}
+
+void WindowContainer::createEditMenu()
+{
+    m_compileAction = new QAction(tr("&Compile"), this);
+    m_compileAction->setShortcuts(QKeySequence::Cut);
+
+    m_recompileAction = new QAction(tr("&Recompile"), this);
+    m_recompileAction->setShortcuts(QKeySequence::Copy);
+
+    m_buildDirectoryAction = new QAction(tr("&Build directory"), this);
+    m_buildDirectoryAction->setShortcuts(QKeySequence::Paste);
+
+    m_generateLibraryAction = new QAction(tr("&Generate library"), this);
+    m_generateLibraryAction->setShortcuts(QKeySequence::Undo);
+
+    m_operationMenu = new QMenu(tr("&Operation"), this);
+    m_operationMenu->addAction(m_compileAction);
+    m_operationMenu->addAction(m_recompileAction);
+    m_operationMenu->addAction(m_buildDirectoryAction);
+    m_operationMenu->addAction(m_generateLibraryAction);
 }

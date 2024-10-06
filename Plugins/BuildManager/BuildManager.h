@@ -21,13 +21,11 @@ public:
 
     ~BuildManager();
 
-    inline bool isProcessReady() { return false; }
+    inline bool isProcessReady() { return m_buildStep->isProcessReady(); }
 
-    QString getBashOutput() { return {}; }
+    inline const QString& getBashOutput() { return m_buildStep->getBashOutput(); }
 
-    void process(const QString& buildCommand, const QString& unitName);
-
-    void executeCommand(const QString& command);
+    void process(const QString& unitName);
 
     void setBuildSystemType() {};
 
@@ -36,7 +34,11 @@ public:
     void setProjectPath() {};
 
 private:
+    EventListener* m_eventListener;
     Target* m_target;
+
+    BuildStep* m_buildStep;
+    QThread m_workerThread;
 };
 
 #endif // BUILD_MANAGER_H

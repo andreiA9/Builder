@@ -8,6 +8,8 @@
 #include <QDir>
 #include <QDebug>
 
+static const char* RESOURCES_PATH = "/BuildResources";
+
 CompileView::CompileView(SessionModule* sessionModule)
     : m_sessionModule(sessionModule)
 {
@@ -46,7 +48,7 @@ void CompileView::initializeCompileTabs()
 void CompileView::initializeTreeView()
 {
     // create the tree view model
-    const QString resourcesPath = QDir::currentPath() + "/Resources";
+    const QString resourcesPath = QDir::currentPath() + RESOURCES_PATH;
     // create the file system model
     QFileSystemModel* model = new QFileSystemModel;
     // set root path for file system model, to be: build folder + "/Resources"

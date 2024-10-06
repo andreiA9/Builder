@@ -17,59 +17,13 @@ static QStringList getSourceFiles(const QDir& directory)
     return directory.entryList(sourceFilters, QDir::Files);
 }
 
-static bool getResourceDirFromUnitName(const QString& unitName, QString& resourceDir)
+Target::Target(ProjectInfo* projectInfo)
+    : m_projectInfo(projectInfo)
 {
-   if (unitName.isEmpty())
-   {
-       return false;
-   }
-
-   // extract the path
-   QUrl unitPath = unitName;
-   resourceDir = unitPath.toString(QUrl::RemoveFilename);
-   return true;
-}
-
-Target::Target(EventListener* eventListener, ProjectInfo* projectInfo)
-    : m_eventListener(eventListener), m_projectInfo(projectInfo)
-{
-    m_buildStep = new BuildStep;
-//    m_buildStep->moveToThread(&m_workerThread);
-//    QObject::connect(&m_workerThread, &QThread::started, m_buildStep, &BuildStep::run);
-//    QObject::connect(&m_workerThread, &QThread::finished, m_buildStep, &QObject::deleteLater);
-//    m_workerThread.start();
-
-//    QObject::connect(m_buildStep, &BuildStep::compileOutputChanged, this,
-//                     &GccController::updateOutputTextEdit);
 }
 
 Target::~Target()
 {
-//    m_workerThread.quit();
-//    m_workerThread.wait();
-
-    delete m_buildStep;
-}
-
-void Target::process(const QString& buildCommand, const QString& unitName)
-{
-    if (!m_eventListener->hasEvents())
-    {
-        return;
-    }
-
-    QString resourceDir;
-    if (!getResourceDirFromUnitName(unitName, resourceDir))
-    {
-        return;
-    }
-
-    BuildRequest event = m_eventListener->getRequestEvent();
-    QVector<QString> commandQueue =
-            getBuildCommandQueue(event, buildCommand, resourceDir);
-
-    m_eventListener->clearCurrentEvent();
-    m_buildStep->setCommandQueue(resourceDir, commandQueue);
 }
 
 QVector<QString> Target::getBuildCommandQueue(BuildRequest event, const QString& buildCommand,
@@ -126,16 +80,19 @@ void Target::executeCommand(const QString& command)
     Q_UNUSED(command);
 }
 
-bool Target::handleOperation(int selection)
+bool Target::handleOperation(BuildRequest event, QString& resourceDir, QVector<QString>& commandQueue)
 {
-    QString resourceDir;
-    if (!m_gccHandler.findResourceDirectory(selection, resourceDir))
+    if (!m_gccHandler.findResourceDirectory(event, resourceDir))
     {
         return false;
     }
 
-    BuildRequest event = static_cast<BuildRequest>(selection);
-    QVector<QString> commandQueue = m_gccHandler.getCommandQueue(event, resourceDir);
+    commandQueue = m_gccHandler.getCommandQueue(event, resourceDir);
+    return true;
+}
+
+void Target::executeCommandQueue(QString resourceDir, QVector<QString> commandQueue)
+{
     qDebug() << "Entering directory:" << resourceDir;
     foreach (const QString &command, commandQueue)
     {
@@ -143,6 +100,4 @@ bool Target::handleOperation(int selection)
         m_gccHandler.executeCommand(resourceDir, command);
     }
     qDebug() << "Leaving directory:" << resourceDir;
-
-    return true;
 }

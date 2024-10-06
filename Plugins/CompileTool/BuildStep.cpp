@@ -23,7 +23,7 @@ void BuildStep::setCommand(const QString& workingDirectory, const QString& build
 }
 
 void BuildStep::setCommandQueue(const QString& workingDirectory,
-                                     const QVector<QString>& commandQueue)
+                                const QVector<QString>& commandQueue)
 {
     m_workingDirectory = workingDirectory;
     m_commandQueue = commandQueue;
@@ -34,8 +34,17 @@ void BuildStep::run()
 {
     qDebug() << "BuildStep::run()";
     fflush(stdout);
-    while (m_processState == ProcesState::Running)
+    while (m_processState != ProcesState::Stopped)
     {
+        if (m_processState == ProcesState::Running)
+        {
+            foreach (const auto& command, m_commandQueue)
+            {
+                executeCommand(command);
+            }
+            m_processState = ProcesState::Waiting;
+        }
+        /*
         if (!m_buildCommand.isEmpty())
         {
             executeCommand();
@@ -44,20 +53,21 @@ void BuildStep::run()
             m_buildCommand = "";
             m_processState = ProcesState::Stopped;
         }
+        */
         usleep(300);
     }
 }
 
-void BuildStep::executeCommand()
+void BuildStep::executeCommand(const QString& command)
 {
     QProcess bashProcess;
 
     qDebug() << "Process working directory: " << m_workingDirectory;
-    qDebug() << "Process command: " << m_buildCommand;
+    qDebug() << "Process command: " << command;
     fflush(stdout);
 
     bashProcess.setWorkingDirectory(m_workingDirectory);
-    bashProcess.start(m_buildCommand);
+    bashProcess.start(command);
     // this ensures that the application will wait until the process is ended
     bashProcess.waitForFinished(-1);
 

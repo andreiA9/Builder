@@ -42,7 +42,7 @@ public:
 
     // this finds the folder mapped to each BuildRequest
     // the mapping is done inside m_OperationToPathMap
-    bool findResourceDirectory(int selection, QString& resourceDir);
+    bool findResourceDirectory(BuildRequest event, QString& resourceDir);
 
     // peform the operation in gcc for the respective directory
     QVector<QString>

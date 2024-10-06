@@ -10,13 +10,14 @@ void BuildManagerTests::execute()
     // :/CompileFolder/main.cpp
     // SAU
     // :/Resources/CompileFolder/main.cpp
-    EventListener* eventListener = nullptr;
     ProjectInfo* projectInfo = nullptr;
-    Target target(eventListener, projectInfo);
+    Target target(projectInfo);
 
-    // Invoke GccCommandGenerator based on the user's menu selection
-    // (1-compile, 2-recompile, 3-build executable, 4-create library)
-    target.handleOperation(selection);
+    QString resourceDir;
+    QVector<QString> commandQueue;
+    BuildRequest event = static_cast<BuildRequest>(selection);
+    target.handleOperation(event, resourceDir, commandQueue);
+    target.executeCommandQueue(resourceDir, commandQueue);
 }
 
 QTEST_MAIN(BuildManagerTests)

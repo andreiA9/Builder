@@ -17,6 +17,9 @@
 #include <QVBoxLayout>
 #include <QStackedWidget>
 #include <QPushButton>
+#include <QMenuBar>
+#include <QMenu>
+#include <QAction>
 
 class WindowContainer : public QWidget
 {
@@ -34,6 +37,12 @@ protected:
     void initializeWorkArea();
 
     void initializeProjectTabs();
+
+    void createMenuBar();
+
+    void createFileMenu();
+
+    void createEditMenu();
 
 protected:
     // Main grid
@@ -64,6 +73,22 @@ protected:
     // Edit and Compile subwidgets
     EditView* m_editView;
     CompileView* m_compileView;
+
+    // Menu items
+    QMenuBar* m_menuBar;
+    QMenu* m_modeMenu = nullptr;
+    QMenu* m_operationMenu = nullptr;
+
+    // Menu -> Mode
+    QAction* m_buildAction = nullptr;
+    QAction* m_prjAction = nullptr;
+    QAction* m_exitAction = nullptr;
+
+    // Menu -> Edit
+    QAction* m_compileAction = nullptr;
+    QAction* m_recompileAction = nullptr;
+    QAction* m_buildDirectoryAction = nullptr;
+    QAction* m_generateLibraryAction = nullptr;
 };
 
 #endif // WINDOW_CONTAINER_H

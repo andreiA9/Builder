@@ -60,7 +60,7 @@ void SessionModule::checkForRequestsFromUi()
     {
         case UiRequest::BuildUiRequest:
         {
-            m_buildManager->process(m_buildCommand, m_unitName);
+            m_buildManager->process(m_unitName);
             break;
         }
         case UiRequest::ProjectRequest:

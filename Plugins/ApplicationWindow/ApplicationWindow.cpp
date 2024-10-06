@@ -8,6 +8,9 @@
 
 ApplicationWindow::ApplicationWindow()
 {
+    createMenuBar();
+    initializeMenuConnects();
+
     initializeComandEdit();
 
     initializeControlButtons();
@@ -34,6 +37,17 @@ ApplicationWindow::~ApplicationWindow()
     delete m_eventListener;
 }
 
+void ApplicationWindow::initializeMenuConnects()
+{
+    connect(m_compileAction, &QAction::triggered, this, &ApplicationWindow::doCompile);
+    connect(m_buildDirectoryAction, &QAction::triggered, this, &ApplicationWindow::doBuild);
+    connect(m_generateLibraryAction, &QAction::triggered, this, &ApplicationWindow::doGenerateLib);
+
+    connect(m_exitAction, &QAction::triggered, this, &QWidget::close);
+
+//    connect(m_aboutAction, &QAction::triggered, this, &ApplicationWindow::showAbout);
+}
+
 void ApplicationWindow::initializeConnects()
 {
     m_projectTab = CompileTab;
@@ -58,8 +72,8 @@ void ApplicationWindow::initializeConnects()
         m_projectTab = CompileTab;
         m_functionButton0->setText("Compile");
         m_functionButton1->setText("Recompile");
-        m_functionButton2->setText("Build");
-        m_functionButton3->setText("Generate lib");
+        m_functionButton2->setText("Build directory");
+        m_functionButton3->setText("Generate library");
         m_functionButton4->setText("Undefined");
     });
 

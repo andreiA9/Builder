@@ -37,20 +37,20 @@ public:
 
     // This process should execute a command as long as it is in
     // the Running state; otherwise the process is idle
-//    void run();
+    void run();
 
     // ASTA va GENERA COMANDA executata.in Bash
     void composeBashCommand() {};
 
 private:
     // Executes the current command that was set
-    void executeCommand();
+    void executeCommand(const QString& command);
 
 //signals:
 //    void compileOutputChanged();
 
-public slots:
-    void run();
+//public slots:
+//    void run();
 
 private:
     QString m_buildCommand;

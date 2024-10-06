@@ -26,6 +26,8 @@ public:
 
     ~ApplicationWindow();
 
+    void initializeMenuConnects();
+
     void initializeConnects();
 
 private slots:
